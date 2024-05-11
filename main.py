@@ -46,8 +46,6 @@ while running:
     # Обрабатываем события
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            # Останавливаем поток перед выходом из программы
-            # target_thread.join()
             stop_flag = True
             running = False
 
@@ -62,5 +60,8 @@ while running:
 
     screen.blit(target_img, (target_x, target_y))
     pygame.display.update()
+
+# Останавливаем поток перед выходом из программы
+target_thread.join()
 
 pygame.quit()
